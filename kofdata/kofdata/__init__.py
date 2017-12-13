@@ -1,8 +1,3 @@
-# TODO:
-#	Packaging stuff
-#	is this the right way to do __init__?
-#	bring constants together and avoid repetition (ds_base_url etc.)
-
 from get_time_series import get_time_series
 from get_dataset import get_dataset
 from get_quota import get_quota

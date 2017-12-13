@@ -3,9 +3,10 @@ from helpers import ts_trim
 from requests import get
 import StringIO
 from errors import KofdataError
+import constants as const
 
 def get_dataset(set_name, api_key=None, as_data_frame=False, ):
-	url = 'https://datenservice.kof.ethz.ch/api/v1/{}/sets/{}?mime=csv'
+	url = const.API_BASE_URL + '/{}/sets/{}?mime=csv'
 	if(not api_key is None):
 		url = url.format('main', set_name) + '&apikey={}'.format(api_key)
 	else:

@@ -1,12 +1,13 @@
 from requests import get
 from errors import KofdataError
+import constants as const
 
 def ts_trim(ts):
 	ts = ts.loc[ts.first_valid_index():]
 	return ts.loc[:ts.last_valid_index()]
 	
 def get_cdc_files(username, api_key):
-	url = 'https://datenservice.kof.ethz.ch/api/v1/user/{}/datasets?apikey={}'.format(username, api_key)
+	url = const.API_BASE_URL + '/user/{}/datasets?apikey={}'.format(username, api_key)
 	
 	listing = get(url)
 	

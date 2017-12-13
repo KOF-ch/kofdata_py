@@ -3,12 +3,13 @@ from helpers import ts_trim
 from requests import get
 import StringIO
 from errors import KofdataError
+import constants as const
 
 def get_time_series(keys, api_key=None, as_data_frame=False, ):
 	if not isinstance(keys, basestring):
 		keys = ','.join(keys)
 
-	url = 'https://datenservice.kof.ethz.ch/api/v1/{}/ts?mime=csv&keys={}'
+	url = const.API_BASE_URL + '/{}/ts?mime=csv&keys={}'
 	if(not api_key is None):
 		url = url.format('main', keys) + '&apikey={}'.format(api_key)
 	else:

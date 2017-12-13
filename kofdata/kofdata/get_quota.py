@@ -1,8 +1,9 @@
 from requests import get
 from errors import KofdataError
+import constants as const
 
 def get_quota(api_key):
-	url = 'https://datenservice.kof.ethz.ch/api/v1/main/remainingquota?apikey={}'.format(api_key)
+	url = const.API_BASE_URL + '/main/remainingquota?apikey={}'.format(api_key)
 	response = get(url)
 	
 	if(response.status_code == 200):

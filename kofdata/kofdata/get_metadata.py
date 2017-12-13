@@ -1,7 +1,8 @@
 from requests import get
+import constants as const
 
 def get_metadata(keys, locale='en'):
-	url = 'https://datenservice.kof.ethz.ch/api/v1/metadata?key={}&locale={}'
+	url = const.API_BASE_URL + '/metadata?key={}&locale={}'
 	
 	if isinstance(keys, basestring):
 		keys = [keys]
