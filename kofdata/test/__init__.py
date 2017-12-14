@@ -1,3 +1,4 @@
 from test_get_quota import TestGetQuota
 from test_get_time_series import TestGetTimeSeries
 from test_get_dataset import TestGetDataset
+from test_get_metadata import TestGetMetadata
