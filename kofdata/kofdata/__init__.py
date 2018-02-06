@@ -6,5 +6,6 @@ from get_cached_data import get_cached_data
 from get_metadata import get_metadata
 from get_legacy_key import get_legacy_key
 from list_available_sets import list_available_sets
+from list_keys_in_set import list_keys_in_set
 
 from errors import KofdataError
