@@ -1,7 +1,10 @@
 import pandas as pd
 from helpers import ts_trim
 from requests import get
-import StringIO
+try:
+    from StringIO import StringIO
+except ImportError:
+    from io import StringIO
 from errors import KofdataError
 
 def get_dataset(set_name, api_key=None, as_data_frame=False, ):
