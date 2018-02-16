@@ -1,14 +1,15 @@
 import pandas as pd
-from helpers import ts_trim
+from helpers import ts_trim, ts_to_dict
 from requests import get
 try:
     from StringIO import StringIO
 except ImportError:
     from io import StringIO
 from errors import KofdataError
+import constants as const
 
 def get_dataset(set_name, api_key=None, as_data_frame=False, ):
-	url = 'https://datenservice.kof.ethz.ch/api/v1/{}/sets/{}?mime=csv'
+	url = const.API_BASE_URL + '/{}/sets/{}?mime=csv'
 	if(not api_key is None):
 		url = url.format('main', set_name) + '&apikey={}'.format(api_key)
 	else:
@@ -21,8 +22,7 @@ def get_dataset(set_name, api_key=None, as_data_frame=False, ):
 		ts = pd.read_csv(sio, index_col='date', parse_dates=True)
 
 		if not as_data_frame:
-			ts = ts.to_dict(orient='series')
-			ts = dict((k, ts_trim(v)) for k, v in ts.items())
+			ts = ts_to_dict(ts)
 			
 		return ts
 	elif(response.status_code == 403):

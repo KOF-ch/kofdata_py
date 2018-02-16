@@ -1,6 +1,7 @@
 from errors import KofdataError
 from helpers import get_cdc_files
 from requests import get
+import constants as const
 import os
 
 def get_cached_data(username, api_key, file, target=None):
@@ -10,7 +11,7 @@ def get_cached_data(username, api_key, file, target=None):
 	if( target is None ):
 		target = os.path.join(os.getcwd(), file)
 	
-	url = 'https://datenservice.kof.ethz.ch/api/v1/user/{}/datasets/{}?apikey={}'.format(username, file, api_key)
+	url = const.API_BASE_URL + '/user/{}/datasets/{}?apikey={}'.format(username, file, api_key)
 	
 	f = get(url, stream=True)
 	
