@@ -1,7 +1,10 @@
 import pandas as pd
 from helpers import ts_trim, ts_to_dict
 from requests import get
-import StringIO
+try:
+    from StringIO import StringIO
+except ImportError:
+    from io import StringIO
 from errors import KofdataError
 import constants as const
 
