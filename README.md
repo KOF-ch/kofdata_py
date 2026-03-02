@@ -1,3 +1,7 @@
+DEPRECATED
+==========
+Please use the (tsdbapi Python package)[https://github.com/KOF-ch/tsdbapi-py] to download time series data from KOF instead.
+
 # kofdata_py
 Python API Wrapper for the KOF Datenservice API
 
